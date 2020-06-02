@@ -1,14 +1,39 @@
 #!/bin/bash
 
-if [ ! $1 ]; then
-	NAME=a1
-else
-	NAME=$1
+NAME="anaconda_$(date +%m%d%H%M)"
+IS_SIP=0
+
+for OPT in "$@"
+do
+	case $OPT in
+		-s | --sip)
+			IS_SIP=1
+			;;
+		-n | --name)
+			if [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
+				echo "$PROGNAME: option requires an argument -- $1" 1>&2
+				exit 1
+			fi
+			NAME=$2
+			shift 2
+			;;
+	esac
+done
+
+OPT_DOCKER=$(cat << EOS
+	-it 
+	--name $NAME 
+	-v /home/atrenew/apps/anaconda/mnt:/opt/notebooks 
+EOS
+)
+
+if [ $IS_SIP == 1 ]; then
+	OPT_DOCKER=$OPT_DOCKER"--net mynet --ip 172.18.0.254"
 fi
 
-docker run -it \
-	--name $NAME \
-	-v /home/atrenew/apps/anaconda/mnt:/opt/notebooks \
+#echo "docker run "$OPT_DOCKER
+
+docker run $OPT_DOCKER \
 	continuumio/anaconda3:2020.02 \
 	/opt/conda/bin/jupyter notebook \
 	--notebook-dir=/opt/notebooks \

@@ -3,15 +3,16 @@
 NAME="anaconda_$(date +%m%d%H%M)"
 IS_SIP=0
 
-for OPT in "$@"
+while [ "${#}" -gt 0 ]
 do
-	case $OPT in
+	case "${1}" in
 		-s | --sip)
 			IS_SIP=1
+			shift
 			;;
 		-n | --name)
-			if [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
-				echo "$PROGNAME: option requires an argument -- $1" 1>&2
+			if [[ -z "${2}" ]] || [[ "${2}" =~ ^-+ ]]; then
+				echo "$(basename $0): option requires an argument -- $1" 1>&2
 				exit 1
 			fi
 			NAME=$2
@@ -31,7 +32,7 @@ if [ $IS_SIP == 1 ]; then
 	OPT_DOCKER=$OPT_DOCKER"--net mynet --ip 172.18.0.254"
 fi
 
-#echo "docker run "$OPT_DOCKER
+# echo "docker run "$OPT_DOCKER
 
 docker run $OPT_DOCKER \
 	continuumio/anaconda3:2020.02 \

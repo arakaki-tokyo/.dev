@@ -1,0 +1,14 @@
+2020/05/13 11:06:55 [error] 6#6: *3 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "2.penguin.linux.test", referrer: "2.penguin.linux.test"
+2020/05/13 11:16:28 [emerg] 16#16: unknown "x" variable
+2020/05/13 11:18:34 [notice] 18#18: signal process started
+2020/05/13 12:10:57 [notice] 13#13: signal process started
+2020/05/13 12:11:50 [notice] 16#16: signal process started
+2020/05/13 12:21:47 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/my.conf:2
+2020/05/13 12:24:23 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/my.conf:2
+2020/05/13 12:24:55 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/my.conf:2
+2020/05/13 12:33:50 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/my.conf:2
+2020/06/01 12:35:54 [error] 7#7: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "3.test", referrer: "http://3.test/"
+2020/06/01 12:35:56 [error] 7#7: *3 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "3.test", referrer: "http://3.test/"
+2021/01/09 09:20:08 [error] 32#32: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "2.test", referrer: "http://2.test/"
+2021/01/09 09:20:19 [error] 32#32: *4 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "2.local.com", referrer: "http://2.local.com/"
+2021/01/09 10:05:27 [error] 32#32: *7 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "2.local.com", referrer: "http://2.local.com/"

@@ -2,17 +2,19 @@
 
 WD=$(dirname $0)
 cd ${WD}
-cd confs/nginx
+cd nginx
 
 TARGET_DIR="/etc/nginx/sites-enabled/"
 TARGET_FILE="docker.conf" 
-if [ -L ${TARGET_DIR}${TARGET_FILE} ]; then
-	sudo rm ${TARGET_DIR}${TARGET_FILE}
-	echo "rm ${TARGET_DIR}${TARGET_FILE}"
-fi
+
+sudo rm ${TARGET_DIR}/*
 
 sudo ln -s $PWD/docker.conf ${TARGET_DIR}
 echo "ln -s $PWD/docker.conf ${TARGET_DIR}"
+
+cd ../
+echo "ln -sf $PWD/.gitconfig ~/"
+ln -sf $PWD/.gitconfig ~/
 
 # cd ../dnsmasq
 # sudo ln -s $PWD/dnsmasq.conf /etc/

@@ -1,3 +1,5 @@
 [user]
 	name = Arakaki Tokyo
 	email = 49378221+arakaki-tokyo@users.noreply.github.com
+[core]
+	editor = vim
